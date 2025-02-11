@@ -5,10 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>제사예찬 가맹점 문의</title>
     <style>
+        @import url('https://cdn.jsdelivr.net/npm/pretendard@1.3.8/dist/web/static/pretendard.css');
+
         body {
+            font-family: "Pretendard", sans-serif;
             text-align: center;
             margin: 0;
-            background-color: #fff;
+            background-color: #ffffff; /* 배경색 흰색 */
+            color: #333;
         }
         .main-image {
             width: 100%;
@@ -17,16 +21,27 @@
             display: block;
         }
         .button-container {
-            margin-top: 20px;
+            margin-top: 40px; /* 버튼과 이미지 사이 간격 증가 */
+            margin-bottom: 80px; /* 버튼 아래 여유 공간 추가 */
         }
         .inquiry-button {
-            padding: 15px 30px;
-            font-size: 18px;
-            background-color: #b22222;
+            padding: 20px 40px;
+            font-size: 22px; /* 버튼 글씨 키움 */
+            font-weight: bold;
+            background-color: #222; /* 흰 배경에서 잘 보이도록 짙은 색 */
             color: white;
             border: none;
             cursor: pointer;
-            border-radius: 5px;
+            border-radius: 8px;
+            transition: background 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* 살짝 더 강조 */
+        }
+        .inquiry-button:hover {
+            background-color: #444; /* 마우스 오버 시 밝은 회색 */
+            transform: scale(1.05); /* 버튼이 약간 커지는 효과 */
+        }
+        .inquiry-button:active {
+            background-color: #000; /* 클릭 시 더 어두운 색 */
         }
     </style>
 </head>
@@ -34,7 +49,13 @@
     <img src="main.jpg" class="main-image" alt="메인 이미지">
     
     <div class="button-container">
-        <button class="inquiry-button" onclick="window.location.href='inquiry.html'">문의하기</button>
+        <button class="inquiry-button" onclick="openInquiryForm()">문의하기</button>
     </div>
+
+    <script>
+        function openInquiryForm() {
+            window.location.href = "inquiry.html";
+        }
+    </script>
 </body>
 </html>
