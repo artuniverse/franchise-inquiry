@@ -136,12 +136,12 @@
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script>
         (function(){
-            emailjs.init("s0BezPmLmsI0uk6UT"); // ✅ 네가 제공한 Public Key 반영!
+            emailjs.init("s0BezPmLmsI0uk6UT"); // ✅ Public Key 반영!
 
             document.getElementById('inquiry-form').addEventListener('submit', function(event) {
                 event.preventDefault();
 
-                emailjs.send("template_l7u8hqd", "template_l7u8hqd", {
+                emailjs.send("service_zvvwbzp", "template_l7u8hqd", {
                     name: document.getElementById('name').value,
                     phone: document.getElementById('phone').value,
                     email: document.getElementById('email').value,
