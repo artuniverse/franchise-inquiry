@@ -11,7 +11,7 @@
             margin: 0;
             background-color: #ffffff;
             color: #333;
-            line-height: 1.6; /* 가독성 향상 */
+            line-height: 1.6;
         }
         .form-container {
             margin: 50px auto;
@@ -125,18 +125,6 @@
                     <option value="5000만원 이상">5000만원 이상</option>
                 </select>
             </div>
-            <div class="form-group">
-                <label for="operation">운영 방식 *</label>
-                <select id="operation" required>
-                    <option value="직접 운영">직접 운영</option>
-                    <option value="가족 경영">가족 경영</option>
-                    <option value="직원 고용">직원 고용</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="inquiry">문의 내용 *</label>
-                <textarea id="inquiry" required></textarea>
-            </div>
             <button type="submit" class="submit-button">문의하기</button>
         </form>
 
@@ -148,21 +136,19 @@
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script>
         (function(){
-            emailjs.init("YOUR_USER_ID");
+            emailjs.init("YOUR_USER_ID"); // EmailJS에서 발급한 User ID 입력
 
             document.getElementById('inquiry-form').addEventListener('submit', function(event) {
                 event.preventDefault();
 
-                emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", {
+                emailjs.send("YOUR_SERVICE_ID", "template_l7u8hqd", {
                     name: document.getElementById('name').value,
                     phone: document.getElementById('phone').value,
                     email: document.getElementById('email').value,
                     region: document.getElementById('region').value,
                     store: document.getElementById('store').value,
                     experience: document.getElementById('experience').value,
-                    investment: document.getElementById('investment').value,
-                    operation: document.getElementById('operation').value,
-                    inquiry: document.getElementById('inquiry').value
+                    investment: document.getElementById('investment').value
                 }).then(function(response) {
                     document.getElementById('inquiry-form').style.display = 'none';
                     document.getElementById('thank-you-message').style.display = 'block';
