@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>가맹점 문의</title>
+    <style>
+        body {
+            text-align: center;
+            margin: 0;
+            background-color: #fff;
+        }
+        .form-container {
+            margin: 50px auto;
+            padding: 20px;
+            max-width: 400px;
+            background: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .form-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+        label {
+            font-size: 14px;
+            font-weight: bold;
+            display: block;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            font-size: 14px;
+            margin-top: 5px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .submit-button {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            background-color: #b22222;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>가맹점 문의</h2>
+        <form action="https://formsubmit.co/hi_juliana@naver.com" method="POST">
+            <div class="form-group">
+                <label for="name">이름</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">전화번호</label>
+                <input type="tel" id="phone" name="phone" required>
+            </div>
+            <div class="form-group">
+                <label for="inquiry1">문의 내용 1</label>
+                <textarea id="inquiry1" name="inquiry1" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="inquiry2">문의 내용 2</label>
+                <textarea id="inquiry2" name="inquiry2"></textarea>
+            </div>
+            <button type="submit" class="submit-button">문의하기</button>
+        </form>
+    </div>
+</body>
+</html>
