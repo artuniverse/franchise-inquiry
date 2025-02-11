@@ -9,97 +9,102 @@
             font-family: "돋움", sans-serif;
             text-align: center;
             margin: 0;
-            background-color: #f4f4f4;
+            background-color: #ffffff;
             color: #333;
+            line-height: 1.6; /* 가독성 향상 */
         }
         .form-container {
             margin: 50px auto;
-            padding: 30px;
-            max-width: 500px;
+            padding: 40px;
+            max-width: 550px;
             background: #ffffff;
             border-radius: 12px;
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        }
-        h2 {
-            font-size: 22px;
-            color: #222;
-            font-weight: bold;
-            margin-bottom: 20px;
-        }
-        .form-group {
-            margin-bottom: 15px;
             text-align: left;
         }
-        label {
-            font-size: 14px;
+        h2 {
+            font-size: 24px;
+            color: #222;
             font-weight: bold;
-            color: #555;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            font-size: 16px;
+            font-weight: bold;
+            color: #222;
             display: block;
-            margin-bottom: 5px;
+            margin-bottom: 8px;
         }
         input, select, textarea {
             width: 100%;
-            padding: 10px;
-            font-size: 14px;
-            border: 1px solid #ccc;
+            padding: 14px;
+            font-size: 16px;
+            border: 1px solid #aaa;
             border-radius: 6px;
             background-color: #f9f9f9;
         }
         input:focus, textarea:focus, select:focus {
-            border-color: #777;
+            border-color: #555;
             outline: none;
             background-color: #fff;
         }
         .submit-button {
             width: 100%;
-            padding: 12px;
-            font-size: 16px;
-            background-color: #444;
+            padding: 16px;
+            font-size: 18px;
+            font-weight: bold;
+            background-color: #222;
             color: white;
             border: none;
             cursor: pointer;
             border-radius: 6px;
-            transition: background 0.3s ease;
+            transition: background 0.3s ease, transform 0.2s ease;
         }
         .submit-button:hover {
-            background-color: #222;
+            background-color: #444;
+            transform: scale(1.02);
         }
         .thank-you {
             display: none;
-            font-size: 18px;
+            font-size: 22px;
             font-weight: bold;
-            color: #333;
-            margin-top: 20px;
-            padding: 20px;
+            color: green;
+            margin-top: 30px;
+            padding: 25px;
             background: #e8e8e8;
             border-radius: 8px;
             box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
         }
     </style>
 </head>
 <body>
     <div class="form-container">
         <h2>가맹점 문의</h2>
-        <form id="inquiry-form" action="https://formsubmit.co/hi_juliana@naver.com" method="POST" onsubmit="showThankYou(event)">
+        <form id="inquiry-form">
             <div class="form-group">
                 <label for="name">이름 *</label>
-                <input type="text" id="name" name="name" required>
+                <input type="text" id="name" required>
             </div>
             <div class="form-group">
                 <label for="phone">전화번호 *</label>
-                <input type="tel" id="phone" name="phone" required>
+                <input type="tel" id="phone" required>
             </div>
             <div class="form-group">
-                <label for="email">이메일</label>
-                <input type="email" id="email" name="email">
+                <label for="email">이메일 *</label>
+                <input type="email" id="email" required>
             </div>
             <div class="form-group">
                 <label for="region">운영 희망 지역 *</label>
-                <input type="text" id="region" name="region" placeholder="시/군/구 입력" required>
+                <input type="text" id="region" required>
             </div>
             <div class="form-group">
-                <label for="store">점포 보유 여부</label>
-                <select id="store" name="store">
+                <label for="store">점포 보유 여부 *</label>
+                <select id="store" required>
                     <option value="없음">없음</option>
                     <option value="보유 중">보유 중</option>
                     <option value="검토 중">검토 중</option>
@@ -107,14 +112,14 @@
             </div>
             <div class="form-group">
                 <label for="experience">외식업 경험 *</label>
-                <select id="experience" name="experience" required>
+                <select id="experience" required>
                     <option value="없음">없음</option>
                     <option value="있음">있음</option>
                 </select>
             </div>
             <div class="form-group">
                 <label for="investment">투자 가능 금액 *</label>
-                <select id="investment" name="investment" required>
+                <select id="investment" required>
                     <option value="3000만원 이하">3000만원 이하</option>
                     <option value="3000~5000만원">3000~5000만원</option>
                     <option value="5000만원 이상">5000만원 이상</option>
@@ -122,15 +127,15 @@
             </div>
             <div class="form-group">
                 <label for="operation">운영 방식 *</label>
-                <select id="operation" name="operation" required>
+                <select id="operation" required>
                     <option value="직접 운영">직접 운영</option>
                     <option value="가족 경영">가족 경영</option>
                     <option value="직원 고용">직원 고용</option>
                 </select>
             </div>
             <div class="form-group">
-                <label for="inquiry">문의 내용</label>
-                <textarea id="inquiry" name="inquiry"></textarea>
+                <label for="inquiry">문의 내용 *</label>
+                <textarea id="inquiry" required></textarea>
             </div>
             <button type="submit" class="submit-button">문의하기</button>
         </form>
@@ -140,17 +145,32 @@
         </div>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script>
-        function showThankYou(event) {
-            event.preventDefault(); // 기본 폼 제출 동작 방지
-            document.getElementById('inquiry-form').style.display = 'none';
-            document.getElementById('thank-you-message').style.display = 'block';
+        (function(){
+            emailjs.init("YOUR_USER_ID");
 
-            // 실제 메일 전송을 위해 폼을 수동으로 제출
-            setTimeout(function() {
-                document.getElementById('inquiry-form').submit();
-            }, 500);
-        }
+            document.getElementById('inquiry-form').addEventListener('submit', function(event) {
+                event.preventDefault();
+
+                emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", {
+                    name: document.getElementById('name').value,
+                    phone: document.getElementById('phone').value,
+                    email: document.getElementById('email').value,
+                    region: document.getElementById('region').value,
+                    store: document.getElementById('store').value,
+                    experience: document.getElementById('experience').value,
+                    investment: document.getElementById('investment').value,
+                    operation: document.getElementById('operation').value,
+                    inquiry: document.getElementById('inquiry').value
+                }).then(function(response) {
+                    document.getElementById('inquiry-form').style.display = 'none';
+                    document.getElementById('thank-you-message').style.display = 'block';
+                }, function(error) {
+                    alert("전송에 실패했습니다. 다시 시도해주세요.");
+                });
+            });
+        })();
     </script>
 </body>
 </html>
